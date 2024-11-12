@@ -7,6 +7,7 @@ public class Caesar {
 
     public void verschlüsseln(){
         for (int getASCII;i++;char getChar)
+            int=0
 
 
 
