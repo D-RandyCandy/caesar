@@ -1,14 +1,13 @@
 public class Caesar {
-    private String Kt (){
-        String Kt="";
-        String gt="";
-        int s="";
+    private String gt;
+    private String kt;
+    private int s;
 
 
-
-    }
 
     public void verschlüsseln(){
+        for (int getASCII;i++;char getChar)
+
 
 
     }
@@ -24,18 +23,31 @@ public class Caesar {
         return (char) pWert;
 
     }
-    public void setKt (String pWert){
 
-
+    public String getGt() {
+        return gt;
     }
-    public void getKt(String) {
 
-
+    public void setGt(String gt) {
+        this.gt = gt;
     }
-    public void setS (int pWert){
 
-
+    public String getKt() {
+        return kt;
     }
+
+    public void setKt(String kt) {
+        this.kt = kt;
+    }
+
+    public int getS() {
+        return s;
+    }
+
+    public void setS(int s) {
+        this.s = s;
+    }
+}
 
 
 
