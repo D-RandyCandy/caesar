@@ -6,13 +6,15 @@ public class Caesar {
 
 
     public void verschlüsseln(){
-        for (int getASCII;i++;char getChar)
-            int=0
-
-
-
+        for (int i = 0; i < Kt.length()-1; i++) {
+            int w = this.getASCII(Kt.charAt(i));
+            Gt = Gt + this.getChar(pWert w + s);
+        }
     }
     public void entschlüsseln(){
+        for (int i = 0; i < Kt.length()-1; i++) {
+            int w = this.getASCII(Kt.charAt(i));
+            Kt = Kt + this.getChar(pWert s - w);
 
 
     }
