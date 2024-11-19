@@ -13,7 +13,7 @@ public class Verwaltung {
         scanner = new Scanner(System.in);
         while (true) {
             System.out.println("== HAUPTMENÜ ==");
-            System.out.println("[1] Verschlüsseln");
+            System.out.println("[1] Verschlüsseln ");
             System.out.println("[2] Entschlüsseln");
             System.out.println("[0] Beenden");
             int option = scanner.nextInt();
