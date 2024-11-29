@@ -10,10 +10,10 @@ public abstract class Kryptomat {
     }
 
     // Abstrakte Methode zum Verschlüsseln. Jede Unterklasse muss diese Methode implementieren.
-    public abstract void verschluesseln();
+    public abstract void verschlüsseln();
 
     // Abstrakte Methode zum Entschlüsseln. Jede Unterklasse muss diese Methode implementieren.
-    public abstract void entschluesseln();
+    public abstract void entschlüsseln();
 
     // Eine Hilfsmethode, die einen gegebenen Wert (Integer) in das entsprechende Zeichen (char) umwandelt.
     protected char getChar(int pWert) {

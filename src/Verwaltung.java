@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Verwaltung {
     private Scanner scanner;
     private Caesar caesar;
-    private Viginere viginere;
+    private Vigenere vigenere;
     public static void main(String[] args){
         new Verwaltung();
 
@@ -11,15 +11,15 @@ public class Verwaltung {
     }
     public Verwaltung() {
         caesar=new Caesar();
-        viginere=new Viginere();
+        vigenere=new Vigenere();
         scanner = new Scanner(System.in);
         while (true) {
             System.out.println("== HAUPTMENÜ ==");
             System.out.println("[1] Caesar Verschlüsseln ");
             System.out.println("[2] Caesar Entschlüsseln");
             System.out.println("[0] Beenden");
-            System.out.println("[3] Viginere Entschlüsseln");
-            System.out.println("[4] Viginere Verschlüsseln");
+            System.out.println("[3] Vigenere Verschlüsseln");
+            System.out.println("[4] Vigenere Entschlüsseln");
             int option = scanner.nextInt();
             scanner.nextLine();
             if (option == 1) {
@@ -32,8 +32,18 @@ public class Verwaltung {
                 caesar.verschlüsseln();
                 System.out.println("Das verschlüsselte Wort ist " + caesar.getGt());
             } else if (option == 2) {
-                caesar.verschlüsseln();
-                System.out.println("Das entschlüsselte wort ist " + caesar.getKt());
+                caesar.entschlüsseln();
+                System.out.println("Das entschlüsselte wort ist " + caesar.getGt());
+                caesar.setKt(optionString);
+            } else if (option == 3) {
+                System.out.println("Welches Wort soll in Vigenere Verschlüsselt werden?");
+                String optionString = scanner.nextLine();
+
+
+
+            } else if (option == 4) {
+                System.out.println("Welches Wort soll in Vigenere Entschlüsselt werden?");
+                String optionString = scanner.nextLine();
 
 
             } else if (option == 0) {

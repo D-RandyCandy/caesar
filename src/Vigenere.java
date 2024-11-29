@@ -1,21 +1,21 @@
-public class Viginere {
+public class Vigenere {
 
     private String gt; //Geheimtext
     private String kt; // Klartext
-    private String schluessel; //Schlüssel für die Verschlüsselung
+    private String schlüssel; //Schlüssel für die Verschlüsselung
 
 
 
-    public Viginere(){
+    public Vigenere(){
         kt=""; //Entleert Klartext
-        schluessel=""; //Entleert Schlüsselwort
+        schlüssel=""; //Entleert Schlüsselwort
         gt=""; //Entleert Geheimtext
     }
     // Verschlüsselt den Klartext mit dem Vigenère-Algorithmus
-    public void verschlusseln(){
+    public void verschlÜsseln(){
         for (int i = 0; i < kt.length(); i++) {     // Durchläuft die ganze Zeichenkette
             int d = this.buchstabenZuZahlen(kt.charAt(i));
-            int j = this.buchstabenZuZahlen(schluessel.charAt(i));
+            int j = this.buchstabenZuZahlen(schlüssel.charAt(i));
             gt = gt + this.zahlenZuBuchstaben((char) (d+j));
         }
     }
@@ -23,7 +23,7 @@ public class Viginere {
     public void entschlusseln() {
         for (int i = 0; i < gt.length(); i++) {
             int x = this.buchstabenZuZahlen(gt.charAt(i));
-            int m = this.buchstabenZuZahlen(schluessel.charAt(i));
+            int m = this.buchstabenZuZahlen(schlüssel.charAt(i));
             kt = kt + this.zahlenZuBuchstaben(x - m);
         }
     }
@@ -42,13 +42,14 @@ public class Viginere {
 
     }
     public String getkt(){
+
         return kt;
     }
     public void setkt(String pKt){
 
     }
     public String getschluessel(){
-        return schluessel;
+        return schlüssel;
     }
     public void setschluessel(String pSchluessel){
 
