@@ -23,20 +23,48 @@ public class Verwaltung {
             int option = scanner.nextInt();
             scanner.nextLine();
             if (option == 1) {
-                System.out.println("Welches Wort soll in Caesar Verschlüsselt werden?");
+                System.out.println("Welches Wort soll in Caesar verschlüsselt werden?");
                 String optionString = scanner.nextLine();
                 caesar.setKt(optionString);
                 System.out.println("Gib den Schlüssel an");
                 option = scanner.nextInt();
                 caesar.setS(option);
-                caesar.verschlüsseln();
+                caesar.Verschlüsseln();
                 System.out.println("Das verschlüsselte Wort ist " + caesar.getGt());
-            } else if (option == 2) {
-                caesar.verschlüsseln();
-                System.out.println("Das entschlüsselte wort ist " + caesar.getKt());
+            }
+            else if (option == 2) {
+                System.out.println("Welches Wort soll in Caesar Entschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                caesar.setGt(optionString);
+                System.out.println("Gib den Schlüssel an");
+                option = scanner.nextInt();
+                caesar.setS(option);
+                caesar.Entschlüsseln();
+                System.out.println("Das entschlüsselte Wort ist " + caesar.getKt());
+            }
+            else if (option == 3) {
+                System.out.println("Welches Wort soll in Viginere entschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                viginere.setGt(optionString);
+                System.out.println("Gib den Schlüssel an");
+                option = scanner.nextInt();
+                viginere.setS(option);
+                viginere.Entschlüsseln();
+                System.out.println("Das entschlüsselte Wort ist " + viginere.getKt());
 
+            }
+            else if (option == 4) {
+                System.out.println("Welches Wort soll in Viginere verschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                viginere.setKt(optionString);
+                System.out.println("Gib den Schlüssel an");
+                option = scanner.nextInt();
+                viginere.setS(option);
+                viginere.Entschlüsseln();
+                System.out.println("Das verschlüsselte Wort ist " + viginere.getGt());
 
-            } else if (option == 0) {
+            }
+            else if (option == 0) {
                 break;
             }
             System.out.println();

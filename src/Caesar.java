@@ -1,4 +1,9 @@
-public class Caesar {
+public abstract class Kryptomat{
+
+}
+public class Caesar extends Kryptomat
+
+{
     // Ein privates Feld, das den verschlüsselten Text speichert
     private String Gt;
     // Ein privates Feld, das den Klartext (den zu verschlüsselnden oder entschlüsselnden Text) speichert
@@ -7,7 +12,7 @@ public class Caesar {
     private int S;
 
     // Methode zum Verschlüsseln des Textes
-    public void verschlüsseln(){
+    public void Verschlüsseln(){
         // Schleife durch jedes Zeichen im Klartext (Kt)
         for (int i = 0; i < Kt.length(); i++) {
             // Hole den ASCII-Wert des aktuellen Zeichens
@@ -23,7 +28,7 @@ public class Caesar {
     }
 
     // Methode zum Entschlüsseln des Textes
-    public void entschlüsseln() {
+    public void Entschlüsseln() {
         // Schleife durch jedes Zeichen im verschlüsselten Text (Kt)
         for (int i = 0; i < Kt.length(); i++) {
             // Hole den ASCII-Wert des aktuellen Zeichens

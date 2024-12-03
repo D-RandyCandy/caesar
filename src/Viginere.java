@@ -1,29 +1,32 @@
-public class Viginere {
+public abstract class Kryptomat{
+
+}
+public class Viginere extends Kryptomat {
 
     private String gt; //Geheimtext
     private String kt; // Klartext
-    private String schluessel; //Schlüssel für die Verschlüsselung
+    private String schlüssel; //Schlüssel für die Verschlüsselung
 
 
 
     public Viginere(){
         kt=""; //Entleert Klartext
-        schluessel=""; //Entleert Schlüsselwort
-        gt=""; //Entleert Geheimtext
+        schlüssel=""; //Entleert Schlüsselwort
+        kt=""; //Entleert Geheimtext
     }
     // Verschlüsselt den Klartext mit dem Vigenère-Algorithmus
-    public void verschlusseln(){
+    public void Verschlüsseln(){
         for (int i = 0; i < kt.length(); i++) {     // Durchläuft die ganze Zeichenkette
             int d = this.buchstabenZuZahlen(kt.charAt(i));
-            int j = this.buchstabenZuZahlen(schluessel.charAt(i));
+            int j = this.buchstabenZuZahlen(schlüssel.charAt(i));
             gt = gt + this.zahlenZuBuchstaben((char) (d+j));
         }
     }
     // Entschlüsselt den Geheitext mit dem Vigenère-Algorithmus
-    public void entschlusseln() {
+    public void Entschlusseln() {
         for (int i = 0; i < gt.length(); i++) {
             int x = this.buchstabenZuZahlen(gt.charAt(i));
-            int m = this.buchstabenZuZahlen(schluessel.charAt(i));
+            int m = this.buchstabenZuZahlen(schlüssel.charAt(i));
             kt = kt + this.zahlenZuBuchstaben(x - m);
         }
     }
@@ -35,22 +38,22 @@ public class Viginere {
     private int buchstabenZuZahlen(char pWert) {
         return (int) pWert;
     }
-    public String getgt(){
+    public String getGt(){
         return gt;
     }
-    public void setgt(String pGt) {
+    public void setGt(String pGt) {
 
     }
-    public String getkt(){
-        return kt;
+    public String getKt(){
+        return gt;
     }
-    public void setkt(String pKt){
+    public void setKt(String pKt){
 
     }
-    public String getschluessel(){
-        return schluessel;
+    public String getSchlüssel(){
+        return schlüssel;
     }
-    public void setschluessel(String pSchluessel){
+    public void setSchlüssel(String pSchlüssel){
 
     }
 

@@ -1,8 +1,8 @@
 // Die abstrakte Klasse Kryptomat wird erzeugt
 public abstract class Kryptomat {
     // Zwei geschützte String-Variablen für Verschlüsselungs- und Entschlüsselungstexte verwendet erzeugt.
-    protected String gt;  // "Geheimtext"
-    protected String kt;  //  "Klartext"
+    protected String Gt;  // "Geheimtext"
+    protected String Kt;  //  "Klartext"
 
     // Der Konstruktor der abstrakten Klasse. Er wird von den Unterklassen aufgerufen.
     public Kryptomat() {
@@ -10,10 +10,10 @@ public abstract class Kryptomat {
     }
 
     // Abstrakte Methode zum Verschlüsseln. Jede Unterklasse muss diese Methode implementieren.
-    public abstract void verschluesseln();
+    public abstract void Verschlüsseln();
 
     // Abstrakte Methode zum Entschlüsseln. Jede Unterklasse muss diese Methode implementieren.
-    public abstract void entschluesseln();
+    public abstract void Entschlüsseln();
 
     // Eine Hilfsmethode, die einen gegebenen Wert (Integer) in das entsprechende Zeichen (char) umwandelt.
     protected char getChar(int pWert) {
@@ -27,21 +27,21 @@ public abstract class Kryptomat {
 
     // Getter-Methode für den geheimen Text (gt).
     public String getGt() {
-        return gt;
+        return Gt;
     }
 
     // Setter-Methode für den geheimen Text (gt).
     public void setGt(String pGt) {
-        gt = pGt;
+        Gt = pGt;
     }
 
     // Getter-Methode für den Klartext (kt).
     public String getKt() {
-        return kt;
+        return Kt;
     }
 
     // Setter-Methode für den Klartext (kt).
     public void setKt(String pKt) {
-        kt = pKt;
+        Kt = pKt;
     }
 }
