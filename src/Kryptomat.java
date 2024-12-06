@@ -1,47 +1,52 @@
-// Die abstrakte Klasse Kryptomat wird erzeugt
+// Abstrakte Klasse Kryptomat, die als Grundlage für kryptografische Maschinen oder Algorithmen dient.
 public abstract class Kryptomat {
-    // Zwei geschützte String-Variablen für Verschlüsselungs- und Entschlüsselungstexte verwendet erzeugt.
-    protected String Gt;  // "Geheimtext"
-    protected String Kt;  //  "Klartext"
 
-    // Der Konstruktor der abstrakten Klasse. Er wird von den Unterklassen aufgerufen.
-    public Kryptomat() {
-        // Der Konstruktor ist leer, weil dies eine abstrakte Klasse ist und keine Instanzen direkt erstellt werden.
+    // Geschützte Instanzvariablen, die die verschlüsselten und entschlüsselten Texte repräsentieren.
+    protected String Gt;  // Gt steht für "Geheimtext" oder "Verschlüsselter Text"
+    protected String Kt;  // Kt steht für "Klartext" oder "Unverschlüsselter Text"
+
+    // Konstruktor der Klasse. Initialisiert Gt und Kt als leere Strings.
+    public Kryptomat(){
+        Gt = "";  // Initialisierung des Geheimtextes als leerer String
+        Kt = "";  // Initialisierung des Klartextes als leerer String
     }
 
-    // Abstrakte Methode zum Verschlüsseln. Jede Unterklasse muss diese Methode implementieren.
-    public abstract void Verschlüsseln();
+    // Abstrakte Methode für die Verschlüsselung, die von einer konkreten Unterklasse implementiert werden muss.
+    public abstract void verschluesseln();
 
-    // Abstrakte Methode zum Entschlüsseln. Jede Unterklasse muss diese Methode implementieren.
-    public abstract void Entschlüsseln();
+    // Abstrakte Methode für die Entschlüsselung, die ebenfalls von einer konkreten Unterklasse implementiert werden muss.
+    public abstract void entschluesseln();
 
-    // Eine Hilfsmethode, die einen gegebenen Wert (Integer) in das entsprechende Zeichen (char) umwandelt.
-    protected char getChar(int pWert) {
-        return (char) pWert; // Der Wert wird in ein Zeichen umgewandelt.
+    // Methode, die einen int-Wert (ASCII-Wert) in das entsprechende Zeichen umwandelt.
+    // Diese Methode wird verwendet, um ASCII-Werte in Zeichen zu konvertieren.
+    public char getChar(int pWert) {
+        return (char) pWert;  // Wandelt den übergebenen int-Wert in das entsprechende Zeichen um
     }
 
-    // Eine Hilfsmethode, die das ASCII-Wert eines Zeichens zurückgibt.
-    protected int getASCII(char pWert) {
-        return pWert; // Der ASCII-Wert eines Zeichens ist der numerische Wert des Zeichens.
+    // Methode, die ein Zeichen in den entsprechenden ASCII-Wert umwandelt.
+    // Diese Methode gibt den ASCII-Wert des übergebenen Zeichens zurück.
+    public int getASCII(char pWert) {
+        return pWert;  // Gibt den ASCII-Wert des Zeichens zurück
     }
 
-    // Getter-Methode für den geheimen Text (gt).
-    public String getGt() {
-        return Gt;
+    // Getter-Methode für das Attribut Gt (Geheimtext).
+    public String getGt(){
+        return Gt;  // Gibt den Geheimtext zurück
     }
 
-    // Setter-Methode für den geheimen Text (gt).
-    public void setGt(String pGt) {
-        Gt = pGt;
+    // Setter-Methode für das Attribut Gt (Geheimtext).
+    public void setGt(String pWert){
+        this.Gt = pWert;  // Setzt den Wert von Gt auf den übergebenen Wert
     }
 
-    // Getter-Methode für den Klartext (kt).
-    public String getKt() {
-        return Kt;
+    // Setter-Methode für das Attribut Kt (Klartext).
+    public void setKt(String pWert){
+        this.Kt = pWert;  // Setzt den Wert von Kt auf den übergebenen Wert
     }
 
-    // Setter-Methode für den Klartext (kt).
-    public void setKt(String pKt) {
-        Kt = pKt;
+    // Getter-Methode für das Attribut Kt (Klartext).
+    public String getKt(){
+        return Kt;  // Gibt den Klartext zurück
     }
+
 }

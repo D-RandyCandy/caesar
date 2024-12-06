@@ -2,74 +2,93 @@ import java.util.Scanner;
 
 public class Verwaltung {
     private Scanner scanner;
-    private Caesar caesar;
-    private Viginere viginere;
-    public static void main(String[] args){
+    private Caeser caeser;
+    private Polybius polybius;
+    private Veginere veginere;
+
+    public static void main(String[] args) {
         new Verwaltung();
 
-
     }
+
     public Verwaltung() {
-        caesar=new Caesar();
-        viginere=new Viginere();
+        veginere = new Veginere();
+        caeser = new Caeser();
+        polybius = new Polybius();
         scanner = new Scanner(System.in);
         while (true) {
             System.out.println("== HAUPTMENÜ ==");
-            System.out.println("[1] Caesar Verschlüsseln ");
-            System.out.println("[2] Caesar Entschlüsseln");
+            System.out.println("[1] Verschlüsseln (Verschlüsselt ein vom User angegebenes Wort)(Caeser)");
+            System.out.println("[2] Entschlüsseln (Entschlüsselt ein vom User angegebenes Wort)(Caeser)");
+            System.out.println("[3] Verschlüsseln (Verschlüsselt ein vom User angegebenes Wort)(Viginere)");
+            System.out.println("[4] Entschlüsseln (Entschlüsselt ein vom User angegebenes Wort)(Viginere)");
+            System.out.println("[5] Verschlüsseln (Verschlüsselt ein vom User angegebenes Wort)(Polybius)");
+            System.out.println("[6] Entschlüsseln (Entschlüsselt ein vom User angegebenes Wort)(Polybius)");
             System.out.println("[0] Beenden");
-            System.out.println("[3] Viginere Entschlüsseln");
-            System.out.println("[4] Viginere Verschlüsseln");
             int option = scanner.nextInt();
             scanner.nextLine();
             if (option == 1) {
-                System.out.println("Welches Wort soll in Caesar verschlüsselt werden?");
+                System.out.println("Welches Wort soll Verschlüsselt werden?");
                 String optionString = scanner.nextLine();
-                caesar.setKt(optionString);
-                System.out.println("Gib den Schlüssel an");
+                caeser.setKt(optionString);
+                System.out.println("Gib den Schlüssel an (verschiebt das angegebene Wort um den Schlüssel nach links im Alphabet)");
                 option = scanner.nextInt();
-                caesar.setS(option);
-                caesar.Verschlüsseln();
-                System.out.println("Das verschlüsselte Wort ist " + caesar.getGt());
-            }
-            else if (option == 2) {
-                System.out.println("Welches Wort soll in Caesar Entschlüsselt werden?");
+                caeser.setS(option);
+                caeser.verschluesseln();
+                System.out.println("Das verschlüsselte Wort ist " + caeser.getGt());
+            } else if (option == 2) {
+                System.out.println("Welches Wort soll entschlüsselt werden?");
                 String optionString = scanner.nextLine();
-                caesar.setGt(optionString);
-                System.out.println("Gib den Schlüssel an");
+                caeser.setGt(optionString);
+                System.out.println("Was ist der Schlüssel? (Entschlüsselt das Wort mit dem Schlüssel indem es im Aphabet nach links geht)");
                 option = scanner.nextInt();
-                caesar.setS(option);
-                caesar.Entschlüsseln();
-                System.out.println("Das entschlüsselte Wort ist " + caesar.getKt());
-            }
-            else if (option == 3) {
-                System.out.println("Welches Wort soll in Viginere entschlüsselt werden?");
-                String optionString = scanner.nextLine();
-                viginere.setGt(optionString);
-                System.out.println("Gib den Schlüssel an");
-                option = scanner.nextInt();
-                viginere.setS(option);
-                viginere.Entschlüsseln();
-                System.out.println("Das entschlüsselte Wort ist " + viginere.getKt());
+                caeser.setS(option);
+                caeser.entschluesseln();
+                System.out.println("Das entschlüsselte wort ist " + caeser.getKt());
 
-            }
-            else if (option == 4) {
-                System.out.println("Welches Wort soll in Viginere verschlüsselt werden?");
-                String optionString = scanner.nextLine();
-                viginere.setKt(optionString);
-                System.out.println("Gib den Schlüssel an");
-                option = scanner.nextInt();
-                viginere.setS(option);
-                viginere.Entschlüsseln();
-                System.out.println("Das verschlüsselte Wort ist " + viginere.getGt());
 
-            }
-            else if (option == 0) {
+            } else if (option == 3) {
+                System.out.println("Welches Wort soll Verschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                veginere.setKt(optionString);
+                System.out.println("Gib den Schlüssel an (verschiebt das angegebene Wort um den Schlüssel nach links im Alphabet)");
+                optionString = scanner.nextLine();
+                veginere.setS(optionString);
+                veginere.verschluesseln();
+                System.out.println("Das verschlüsselte Wort ist " + veginere.getGt());
+            } else if (option == 4) {
+                System.out.println("Welches Wort soll entschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                veginere.setGt(optionString);
+                System.out.println("Was ist der Schlüssel? (Entschlüsselt das Wort mit dem Schlüssel indem es im Aphabet nach links geht)");
+                optionString = scanner.nextLine();
+                veginere.setS(optionString);
+                veginere.entschluesseln();
+                System.out.println("Das entschlüsselte wort ist " + veginere.getKt());
+
+
+            } else if (option == 5) {
+                System.out.println("Welches Wort soll Verschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                polybius.setKt(optionString);
+                polybius.verschluesseln();
+                System.out.println("Das verschlüsselte Wort ist " + polybius.getGt());
+
+            } else if (option == 6) {
+                System.out.println("Welches Wort soll entschlüsselt werden?");
+                String optionString = scanner.nextLine();
+                polybius.setGt(optionString);
+                polybius.entschluesseln();
+                System.out.println("Das entschlüsselte wort ist " + polybius.getKt());
+                if (option == 0) {
+                    break;
+                }
+                System.out.println();
+            } else if (option == 0) {
                 break;
             }
-            System.out.println();
         }
-
-
+        System.out.println();
     }
+
 }

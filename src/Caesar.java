@@ -1,77 +1,86 @@
-public abstract class Kryptomat{
+/**
+ * Die Klasse `Caeser` implementiert die Caesar-Verschlüsselung, auch bekannt als Caesar Cipher.
+ * Diese Methode verschlüsselt und entschlüsselt Text mithilfe einer Verschiebung (Shift-Wert).
+ * Die Verschlüsselung verschiebt die Zeichen im Text um einen bestimmten Wert im Alphabet.
+ */
+public class Caeser extends Kryptomat {
 
-}
-public class Caesar extends Kryptomat
+    // Die Variable speichert den Klartext (unverschlüsselter Text)
 
-{
-    // Ein privates Feld, das den verschlüsselten Text speichert
-    private String Gt;
-    // Ein privates Feld, das den Klartext (den zu verschlüsselnden oder entschlüsselnden Text) speichert
-    private String Kt;
-    // Ein privates Feld, das den Schlüssel (die Verschiebung der Buchstaben) speichert
+
+    // Die Verschiebung, um die die Zeichen verschoben werden (Shift-Wert)
     private int S;
 
-    // Methode zum Verschlüsseln des Textes
-    public void Verschlüsseln(){
-        // Schleife durch jedes Zeichen im Klartext (Kt)
+    /**
+     * Konstruktor der Klasse `Caeser`.
+     * Initialisiert die Variablen `Kt` und `Gt` als leere Strings und `S` als 0.
+     */
+    public Caeser() {
+        S = 0;     // Verschiebung ist anfangs 0
+    }
+
+    /**
+     * Verschlüsselt den Klartext (`Kt`) mit der Caesar-Verschlüsselung und speichert das Ergebnis in `Gt`.
+     * Jedes Zeichen des Klartexts wird um den Wert von `S` verschoben.
+     */
+    public void verschluesseln() {
+        Gt = "";  // Leert den Geheimtext vor der Verschlüsselung
+
+        // Durchläuft jedes Zeichen des Klartexts und verschlüsselt es
         for (int i = 0; i < Kt.length(); i++) {
-            // Hole den ASCII-Wert des aktuellen Zeichens
-            int W = this.getASCII(Kt.charAt(i));
-            // Verschiebe den ASCII-Wert um den Wert von S und füge das verschlüsselte Zeichen zum verschlüsselten Text (Gt) hinzu
-            Gt = Gt + this.getChar(W + S);
+            int h = this.getASCII(Kt.charAt(i));  // Konvertiert das Zeichen in seinen ASCII-Wert
+            Gt = Gt + this.getChar((((h + S) - 97) % 26) + 97);  // Verschiebt den ASCII-Wert und fügt das Ergebnis zum Geheimtext hinzu
         }
     }
 
-    // Hilfsmethode, um den ASCII-Wert eines Zeichens zu erhalten
-    private int getASCII(char pWert) {
-        return (int) pWert;  // Gibt den ASCII-Wert des Zeichens zurück
+    /**
+     * Entschlüsselt den Geheimtext (`Gt`) mit der Caesar-Verschlüsselung und speichert das Ergebnis in `Kt`.
+     * Jedes Zeichen des Geheimtexts wird um den Wert von `S` rückwärts verschoben.
+     */
+    public void entschluesseln () {
+        Kt = "";  // Leert den Klartext vor der Entschlüsselung
+
+        // Durchläuft jedes Zeichen des Geheimtexts und entschlüsselt es
+        for (int i = 0; i < Gt.length(); i++) {
+            int h = this.getASCII(Gt.charAt(i));  // Konvertiert das Zeichen in seinen ASCII-Wert
+            Kt = Kt + this.getChar((((h - S) - 97) % 26) + 97);  // Verschiebt den ASCII-Wert rückwärts und fügt das Ergebnis zum Klartext hinzu
+        }  //-97)%25)+97) Verhindert, dass ein Wert außerhalb des kleinen Alphabets aufgeruft wird
     }
 
-    // Methode zum Entschlüsseln des Textes
-    public void Entschlüsseln() {
-        // Schleife durch jedes Zeichen im verschlüsselten Text (Kt)
-        for (int i = 0; i < Kt.length(); i++) {
-            // Hole den ASCII-Wert des aktuellen Zeichens
-            int W = this.getASCII(Kt.charAt(i));
-            // Verschiebe den ASCII-Wert um den Wert von S in die entgegengesetzte Richtung (d.h. -S) und füge das entschlüsselte Zeichen zum Klartext (Kt) hinzu
-            Kt = Kt + this.getChar(W - S);
-        }
+    /**
+     * Gibt den ASCII-Wert eines Zeichens zurück.
+     * @param pWert Das Zeichen, dessen ASCII-Wert ermittelt werden soll.
+     * @return Der ASCII-Wert des übergebenen Zeichens.
+     */
+
+    /**
+     * Gibt das Zeichen zurück, das dem übergebenen ASCII-Wert entspricht.
+     * @param pWert Der ASCII-Wert, der in ein Zeichen umgewandelt werden soll.
+     * @return Das Zeichen, das dem ASCII-Wert entspricht.
+     */
+
+    /**
+     * Setzt den Klartext (`Kt`), der verschlüsselt oder entschlüsselt werden soll.
+     *
+     * @param pWert Der Klartext, der gesetzt werden soll.
+     */
+
+
+    public void setS(int pWert) {
+        this.S = pWert;  // Setzt die Verschiebung
     }
 
-    // Hilfsmethode, um ein Zeichen aus einem ASCII-Wert zu erzeugen
-    private char getChar(int pWert) {
-        return (char) pWert;  // Wandelt den ASCII-Wert zurück in ein Zeichen um
-    }
-
-    // Getter-Methode für Gt (den verschlüsselten Text)
-    public String getGt() {
-        return Gt;
-    }
-
-    // Setter-Methode für Gt (den verschlüsselten Text)
-    public void setGt(String Gt) {
-        this.Gt = Gt;
-    }
-
-    // Getter-Methode für Kt (den Klartext)
-    public String getKt() {
-        return Kt;
-    }
-
-    // Setter-Methode für Kt (den Klartext)
-    public void setKt(String Kt) {
-        this.Kt = Kt;
-    }
-
-    // Getter-Methode für S (den Schlüssel)
+    /**
+     * Gibt die aktuelle Verschiebung (`S`) zurück.
+     *
+     * @return Die aktuelle Verschiebung.
+     */
     public int getS() {
-        return S;
+        return S;  // Gibt die Verschiebung zurück
     }
 
-    // Setter-Methode für S (den Schlüssel)
-    public void setS(int S) {
-        this.S = S;
-    }
+    /**
+     * Gibt den aktuellen Geheimtext (`Gt`) zurück.
+     * @return Der aktuelle Geheimtext.
+     */
 }
-
-
